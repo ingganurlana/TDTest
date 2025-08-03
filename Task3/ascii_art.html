@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BBF Art Test Circle with javascript</title>
+  <style>
+    #output {
+      font-family: monospace;
+      white-space: pre;
+    }
+  </style>
+</head>
+<body>
+
+<div id="output"></div>
+
+<script>
+  const radius = 20;
+  const width = 5;
+  const scale = 5
+  let output = "";
+
+  for (let y = -radius + 1; y < radius; y++) {
+    for (let x = -radius + 1; x < radius; x++) {
+      let edge = ((x * x + y * y) / radius - radius) + scale;
+
+      if (edge > -width && edge < 1) {
+        output += ".";
+      } else {
+        output += "#";
+      }
+    }
+    output += "\n";
+  }
+
+  document.getElementById("output").textContent = output;
+</script>
+
+</body>
+</html>
